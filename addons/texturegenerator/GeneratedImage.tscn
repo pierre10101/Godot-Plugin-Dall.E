@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdevfiu7ogl8l"]
+
+[ext_resource type="Script" path="res://addons/texturegenerator/GeneratedImage.gd" id="1_pw7ee"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rpsmr"]
+
+[node name="GeneratedImage" type="Panel"]
+custom_minimum_size = Vector2(256, 300)
+offset_right = 256.0
+offset_bottom = 300.0
+script = ExtResource("1_pw7ee")
+
+[node name="OutputImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.497
+anchor_right = 0.512
+anchor_bottom = 0.497
+offset_left = -130.072
+offset_top = -112.1
+offset_right = 123.928
+offset_bottom = 111.9
+texture = SubResource("PlaceholderTexture2D_rpsmr")
+expand_mode = 1
+
+[node name="PromptLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.017
+anchor_right = 1.0
+anchor_bottom = 0.017
+offset_left = -0.036
+offset_top = -0.1
+offset_right = 2.5
+offset_bottom = 25.9
+text = "Yellow grass stylised"
+horizontal_alignment = 1
+
+[node name="SaveImageButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = 114.0
+offset_right = -20.0
+offset_bottom = 148.0
+text = "Save"
+
+[node name="DeleteImageButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 114.0
+offset_right = 127.0
+offset_bottom = 147.0
+text = "Delete"
+
+[connection signal="pressed" from="SaveImageButton" to="." method="_on_save_image_button_pressed"]
+[connection signal="pressed" from="DeleteImageButton" to="." method="_on_delete_image_button_pressed"]

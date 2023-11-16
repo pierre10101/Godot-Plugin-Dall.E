@@ -1,0 +1,179 @@
+[gd_scene load_steps=3 format=3 uid="uid://e2hgd7tedxjl"]
+
+[ext_resource type="Script" path="res://addons/texturegenerator/TextureGeneratorDock.gd" id="1_m4xpr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hsiph"]
+
+[node name="TextureGeneratorDock" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m4xpr")
+
+[node name="GenerateButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.154
+anchor_right = 0.998
+anchor_bottom = 0.154
+offset_left = -0.152
+offset_top = 0.669998
+offset_right = 1.30396
+offset_bottom = 31.67
+text = "Generate Texture"
+
+[node name="GenerateInput" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999
+offset_left = 1.0
+offset_right = 0.151978
+offset_bottom = 28.576
+placeholder_text = "Type to Generate Texture.."
+
+[node name="ModelOption" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.224
+anchor_top = 0.049
+anchor_right = 0.995
+anchor_bottom = 0.049
+offset_left = -0.0480042
+offset_top = 0.296999
+offset_right = -0.240112
+offset_bottom = 31.297
+item_count = 2
+selected = 0
+popup/item_0/text = "dall-e-2"
+popup/item_0/id = 0
+popup/item_1/text = "dall-e-3"
+popup/item_1/id = 1
+
+[node name="ModelOptionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.005
+anchor_top = 0.049
+anchor_right = 0.224
+anchor_bottom = 0.1
+offset_left = 0.24
+offset_top = 0.296999
+offset_right = -2.048
+offset_bottom = 24.716
+text = "Model"
+horizontal_alignment = 1
+
+[node name="SizeOption" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22
+anchor_top = 0.085
+anchor_right = 0.996
+anchor_bottom = 0.085
+offset_left = 4.56
+offset_top = 8.005
+offset_right = -0.392212
+offset_bottom = 39.005
+item_count = 3
+selected = 0
+popup/item_0/text = "256x256"
+popup/item_0/id = 0
+popup/item_1/text = "512x512"
+popup/item_1/id = 1
+popup/item_2/text = "1024x1024"
+popup/item_2/id = 2
+
+[node name="SizeOptionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.088
+anchor_right = 0.209
+anchor_bottom = 0.088
+offset_left = -0.152
+offset_top = 2.064
+offset_right = 2.23199
+offset_bottom = 45.064
+text = "Size"
+label_settings = SubResource("LabelSettings_hsiph")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="APIButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.885
+anchor_right = 1.0
+anchor_bottom = 0.885
+offset_left = -0.152
+offset_top = -0.354004
+offset_right = -4.0
+offset_bottom = 45.426
+disabled = true
+text = "Save API Key"
+
+[node name="APIInput" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.785
+anchor_right = 0.994
+anchor_bottom = 0.785
+offset_top = -11.325
+offset_right = -0.0880127
+offset_bottom = 51.675
+placeholder_text = "Fill in your Open AI API Key"
+editable = false
+
+[node name="ChangeAPIKeyButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.698
+anchor_right = 0.106
+anchor_bottom = 0.698
+offset_left = -0.0640001
+offset_top = -0.210022
+offset_right = -0.112007
+offset_bottom = 37.79
+text = "Edit"
+
+[node name="LockAPIKeyButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.699
+anchor_right = 0.213
+anchor_bottom = 0.699
+offset_left = -0.240005
+offset_top = 0.144958
+offset_right = -0.376022
+offset_bottom = 37.145
+text = "Lock"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.222
+anchor_right = 1.0
+anchor_bottom = 0.688
+offset_left = -0.456
+offset_top = -10.19
+offset_bottom = 0.23999
+
+[node name="ImageContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="APIButton" to="." method="_on_api_button_pressed"]
+[connection signal="pressed" from="ChangeAPIKeyButton" to="." method="_on_change_api_key_button_pressed"]
+[connection signal="pressed" from="LockAPIKeyButton" to="." method="_on_lock_api_key_button_pressed"]
