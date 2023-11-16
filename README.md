@@ -1,4 +1,4 @@
-# Godot Plugin - TextGenerator
+# Godot Plugin - TextureGenerator
 
 ## Installation
 
